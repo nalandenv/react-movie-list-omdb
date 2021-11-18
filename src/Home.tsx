@@ -14,7 +14,7 @@ export const Home = ()=>{
         console.log("component did mount");
     },[])
     
-    const _handleSearch = async (e) => {
+    const _handleSearch = async (e:any) => {
         if(!movie) return;
         if(e === "search"){
             setCurrentPage(1);
@@ -33,12 +33,13 @@ export const Home = ()=>{
         }
         _handleSearch(e=null);
     }
+
     return(
         <div className="container">
             <div className="container">
             <h1>Search Movie</h1>
             <input type="text" name="movie" onChange={(e)=>{setMovie(e.target.value)}}/>
-            <button name="search" onClick={(e)=>{_handleSearch(e.target.name)}}>Search</button>
+            <button name="search" onClick={(e:any)=>{_handleSearch(e.target.name)}}>Search</button>
         </div>
         <div className="search-container mt-5">
             <h2>Showing Results for {movie}</h2>
@@ -49,8 +50,8 @@ export const Home = ()=>{
             </div>
         </div>
         <div className="navigation mt-1">
-            <button name="prev" onClick={(e)=>_changePage(e.target?.name)}>PREV</button>
-            <button name="next" onClick={(e)=>_changePage(e.target?.name)}>NEXT</button>
+            <button name="prev" onClick={(e:any)=>_changePage(e.target?.name)}>PREV</button>
+            <button name="next" onClick={(e:any)=>_changePage(e.target?.name)}>NEXT</button>
         </div>
         </div>
     )
